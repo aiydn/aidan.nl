@@ -3,14 +3,14 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9Y8QS4XM0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9Y8QS4XM0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-Z9Y8QS4XM0');
-</script>
+        gtag('config', 'G-Z9Y8QS4XM0');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>aidan.nl</title>
@@ -21,35 +21,25 @@
     <meta name="author" content="Aidan">
     <link href="./tailwind.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script>
-        jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
-            if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
-                artist = data.recenttracks.track[0].artist["#text"];
-                track = data.recenttracks.track[0].name;
-                // album = data.recenttracks.track[0].album["#text"];
-                // artwork = data.recenttracks.track[0].image[3]["#text"];
-                // url = data.recenttracks.track[0]["url"];
-                // console.log(url)
-                jQuery("#track").text("🎧" + track + " by " + artist);
-                jQuery("#lastfm").text("Currently listening: " + track + " by " + artist);
-                jQuery("#artwork").attr("src", artwork);
-            }
-            else { jQuery("#track").remove() }
-        });
-        function discord() {
-            navigator.clipboard.writeText('aiydn').then(function () {
-                alert('Copied username')
-            }, function () {
-            })
-        }
-    </script>
 </head>
 
 <body>
     <!-- center -->
     <div class="flex h-screen w-screen justify-center">
+
         <!-- row -->
         <div class="flex flex-col justify-center w-4/5	space-y-4">
+            <!-- notification -->
+            <div id="notification" class="hidden ">
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span id="notification-text">Your purchase has been confirmed!</span>
+                </div>
+            </div>
             <!-- avatar -->
             <div class="avatar justify-center">
                 <div class="w-64 rounded-full">
@@ -95,8 +85,66 @@
                         onclick="window.location.href='https://www.last.fm/user/aiydn';">Last.fm page</button>
                 </div>
             </div>
+            <!-- Mail -->
+            <div class="collapse bg-base-200">
+                <input type="checkbox" />
+                <div id="lastfm" class="collapse-title text-xl font-medium">
+                    Send Message
+                </div>
+                <div class="collapse-content">
+                    <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
+                        <div class="join join-vertical w-full">
+                            <input type="hidden" name="_next" value="https://aidan.nl/?message20%success">
+                            <input type="text" name="name" placeholder="name" class="input join-item input-bordered	"
+                                required />
+                            <input type="email" name="email" placeholder="email" class="input join-item input-bordered	"
+                                required>
+                            <textarea name="message" class="textarea join-item " placeholder="message"
+                                required></textarea>
+                            <button type="submit" class="btn join-item btn-outline
+                            ">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+
+        function toast(text) {
+            jQuery("#notification-text").text(text)
+            jQuery("#notification").removeClass("hidden");
+            history.pushState(null, "", location.href.split("?")[0]);
+
+            setTimeout(function () { jQuery("#notification").addClass("hidden"); }, 5000);
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const notify = urlParams.get('notify');
+        if (notify == "message success") { toast("Message successfully sent") }
+
+        jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
+            if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
+                artist = data.recenttracks.track[0].artist["#text"];
+                track = data.recenttracks.track[0].name;
+                // album = data.recenttracks.track[0].album["#text"];
+                // artwork = data.recenttracks.track[0].image[3]["#text"];
+                // url = data.recenttracks.track[0]["url"];
+                // console.log(url)
+                jQuery("#track").text("🎧" + track + " by " + artist);
+                jQuery("#lastfm").text("Currently listening: " + track + " by " + artist);
+                jQuery("#artwork").attr("src", artwork);
+            }
+            else { jQuery("#track").remove() }
+        });
+        function discord() {
+            navigator.clipboard.writeText('aiydn').then(function () {
+                notification - text
+                toast('Copied username')
+            }, function () {
+            })
+        }
+    </script>
 </body>
 
 </html>
