@@ -23,133 +23,90 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
-<body>
-    <!-- center -->
-    <div class="flex h-full w-full justify-center">
+<body class="flex h-full w-full justify-center">
+    <div class="flex flex-col justify-center w-4/5 space-y-4">
+        <!-- notification -->
+        <div id="notification" class="hidden ">
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span id="notification-text">Your purchase has been confirmed!</span>
+            </div>
+        </div>
+        <!-- avatar -->
+        <div class="avatar justify-center">
+            <div class="w-64 rounded-full">
+                <img
+                    src="https://cdn.discordapp.com/avatars/590834029666893825/a154706776360a285411602b8d6b0853?size=1024" />
+            </div>
+        </div>
+        <p class="text-2xl text-center">Aidan</p>
+        <p id="track" href="https://last.fm" class="text-xl text-center"></p>
 
-        <!-- row -->
-        <div class="flex flex-col justify-center w-4/5	space-y-4">
-            <!-- notification -->
-            <div id="notification" class="hidden ">
-                <div class="alert alert-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span id="notification-text">Your purchase has been confirmed!</span>
-                </div>
+        <!-- discord -->
+        <div class="collapse bg-base-200">
+            <input type="radio" name="buttons" />
+            <div class="collapse-title text-xl font-medium">
+                Discord: aiydn
             </div>
-            <!-- avatar -->
-            <div class="avatar justify-center">
-                <div class="w-64 rounded-full">
-                    <img
-                        src="https://cdn.discordapp.com/avatars/590834029666893825/a154706776360a285411602b8d6b0853?size=1024" />
-                </div>
+            <div class="collapse-content">
+                <button class="btn input" onclick="discord()">copy username</button>
             </div>
-            <p class="text-2xl text-center">Aidan</p>
-            <p id="track" href="https://last.fm" class="text-xl text-center"></p>
+        </div>
+        <!-- Nintendo Switch -->
+        <div class="collapse bg-base-200">
+            <input type="radio" name="buttons" />
+            <div class="collapse-title text-xl font-medium">
+                Nintendo Switch: SW-7899-8096-6577
+            </div>
+            <div class="collapse-content">
+                <button class="btn input"
+                    onclick="window.location.href='https://lounge.nintendo.com/friendcode/7899-8096-6577/DBTpJyqwJy';">Open
+                    in app</button>
 
-            <!-- discord -->
-            <div class="collapse bg-base-200">
-                <input type="radio" name="buttons" /> 
-                <div class="collapse-title text-xl font-medium">
-                    Discord: aiydn
-                </div>
-                <div class="collapse-content">
-                    <button class="btn input" onclick="discord()">copy username</button>
-                </div>
+                <p></p>
             </div>
-            <!-- Nintendo Switch -->
-            <div class="collapse bg-base-200">
-                <input type="radio" name="buttons" /> 
-                <div class="collapse-title text-xl font-medium">
-                    Nintendo Switch: SW-7899-8096-6577
-                </div>
-                <div class="collapse-content">
-                    <button class="btn input"
-                        onclick="window.location.href='https://lounge.nintendo.com/friendcode/7899-8096-6577/DBTpJyqwJy';">Open
-                        in app</button>
+        </div>
+        <!-- Last.FM -->
+        <div class="collapse bg-base-200">
+            <input type="radio" name="buttons" />
+            <div id="lastfm" class="collapse-title text-xl font-medium">
+                Last.fm
+            </div>
+            <div class="collapse-content">
+                <button class="btn input" onclick="window.location.href='https://www.last.fm/user/aiydn';">Last.fm
+                    page</button>
+            </div>
+        </div>
+        <!-- Message -->
+        <div class="collapse bg-base-200">
+            <input type="radio" name="buttons" />
+            <div id="lastfm" class="collapse-title text-xl font-medium">
+                Send Message
+            </div>
+            <div class="collapse-content">
+                <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
+                    <div class="join join-vertical w-full">
+                        <input type="text" name="name" placeholder="name" class="input join-item	" required />
+                        <input type="email" name="email" placeholder="email" class="input join-item	" required>
+                        <textarea id="autoresizing" name="message" style="resize: none !important"
+                            class="join-item block overflow-hidden resize-none textarea " placeholder="message"
+                            required></textarea>
+                        <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
 
-                    <p></p>
-                </div>
-            </div>
-            <!-- Last.FM -->
-            <div class="collapse bg-base-200">
-                <input type="radio" name="buttons" /> 
-                <div id="lastfm" class="collapse-title text-xl font-medium">
-                    Last.fm
-                </div>
-                <div class="collapse-content">
-                    <button class="btn input"
-                        onclick="window.location.href='https://www.last.fm/user/aiydn';">Last.fm page</button>
-                </div>
-            </div>
-            <!-- Message -->
-            <div class="collapse bg-base-200">
-                <input type="radio" name="buttons" /> 
-                <div id="lastfm" class="collapse-title text-xl font-medium">
-                    Send Message
-                </div>
-                <div class="collapse-content">
-                    <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
-                        <div class="join join-vertical w-full">
-                            <input type="text" name="name" placeholder="name" class="input join-item	" required />
-                            <input type="email" name="email" placeholder="email" class="input join-item	" required>
-                            <textarea id="autoresizing" name="message" style="resize: none !important"
-                                class="join-item block overflow-hidden resize-none textarea " placeholder="message"
-                                required></textarea>
-                            <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
-
-                            <button type="submit" class="btn join-item input 
+                        <button type="submit" class="btn join-item input 
 
                             ">Send</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <script>
-        jQuery('#autoresizing').on('input', function () {
-            this.style.height = 'auto';
+    <script src="./script.js"></script>
 
-            this.style.height =
-                (this.scrollHeight) * 1.05 + 'px';
-        });
-        function toast(text) {
-            jQuery("#notification-text").text(text)
-            jQuery("#notification").removeClass("hidden");
-            history.pushState(null, "", location.href.split("?")[0]);
-
-            setTimeout(function () { jQuery("#notification").addClass("hidden"); }, 5000);
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const notify = urlParams.get('notify');
-        if (notify == "message success") { toast("Message successfully sent") }
-
-        jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
-            if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
-                artist = data.recenttracks.track[0].artist["#text"];
-                track = data.recenttracks.track[0].name;
-                // album = data.recenttracks.track[0].album["#text"];
-                // artwork = data.recenttracks.track[0].image[3]["#text"];
-                // url = data.recenttracks.track[0]["url"];
-                // console.log(url)
-                jQuery("#track").text("🎧" + track + " by " + artist);
-                jQuery("#lastfm").text("Currently listening: " + track + " by " + artist);
-                jQuery("#artwork").attr("src", artwork);
-            }
-            else { jQuery("#track").remove() }
-        });
-        function discord() {
-            navigator.clipboard.writeText('aiydn').then(function () {
-                toast('Copied username')
-            }, function () {
-            })
-        }
-    </script>
 </body>
 
 </html>
