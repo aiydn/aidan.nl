@@ -28,15 +28,22 @@
             else { jQuery("#track").remove() }
         });
         function discord() {
-            navigator.clipboard.writeText('aiydn').then(function () {
-                alert('Copied username')
-            }, function () {
-            })
+            // navigator.clipboard.writeText('aiydn').then(function () {
+            //     alert('Copied username')
+            // }, function () {
+            // })
+            var copyText = document.getElementById("discord-username");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(copyText.value);
+            alert('Copied username');
         }
     </script>
 </head>
 
 <body>
+    <!-- username -->
+    <input class="hidden" type="text" value="aiydn" id="discord-username">
     <!-- center -->
     <div class="flex h-screen w-screen justify-center">
         <!-- row -->
