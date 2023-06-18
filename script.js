@@ -1,3 +1,5 @@
+var username, displayname, nowplaying
+
 jQuery('#autoresizing').on('input', function () {
     this.style.height = 'auto';
 
@@ -18,20 +20,33 @@ if (notify == "message success") { toast("Message successfully sent") }
 
 jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
     if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
+        jQuery("#music").removeClass("hidden") 
         artist = data.recenttracks.track[0].artist["#text"];
         track = data.recenttracks.track[0].name;
         // album = data.recenttracks.track[0].album["#text"];
         // artwork = data.recenttracks.track[0].image[3]["#text"];
         // url = data.recenttracks.track[0]["url"];
         // console.log(url)
-        jQuery("#track").text("🎧" + track + " by " + artist);
+        jQuery("#music").text("🎧" + track + " by " + artist);
         jQuery("#lastfm").text("Currently listening: " + track + " by " + artist);
         jQuery("#artwork").attr("src", artwork);
     }
-    else { jQuery("#track").remove() }
 });
+jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
+    console.log(data)
+        displayname = data.data.discord_user.global_name;
+        username = data.data.discord_user.username;
+        jQuery("#name").text(displayname);
+        jQuery("#discord").append(username)
+        if (data.data.activities.length > 0 )
+        {nowplaying = data.data.activities["0"].name;
+        jQuery("#game").removeClass("hidden") 
+        jQuery("#game").text("🎮" + nowplaying);
+        jQuery("#discord").append(" | Now playing: " + nowplaying)
+    }
+    });
 function discord() {
-    navigator.clipboard.writeText('aiydn').then(function () {
+    navigator.clipboard.writeText(username).then(function () {
         toast('Copied username')
     }, function () {
     })

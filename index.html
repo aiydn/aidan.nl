@@ -33,24 +33,26 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span id="notification-text">Your purchase has been confirmed!</span>
+                <span id="notification-text"></span>
             </div>
         </div>
         <!-- avatar -->
         <div class="avatar justify-center">
             <div class="w-64 rounded-full">
                 <img
-                    src="https://cdn.discordapp.com/avatars/590834029666893825/a154706776360a285411602b8d6b0853?size=1024" />
+                    src="https://api.lanyard.rest/590834029666893825.webp" />
             </div>
         </div>
-        <p class="text-2xl text-center">Aidan</p>
-        <p id="track" href="https://last.fm" class="text-xl text-center"></p>
+        <p id="name" class="text-2xl text-center"></p>
+        <p id="music" class="hidden text-xl text-center"></p>
+        <p id="game" class="hidden text-xl text-center"></p>
+
 
         <!-- discord -->
         <div class="collapse bg-base-200">
             <input type="radio" name="buttons" />
-            <div class="collapse-title text-xl font-medium">
-                Discord: aiydn
+            <div id="discord" class="collapse-title text-xl font-medium">
+                Discord: 
             </div>
             <div class="collapse-content">
                 <button class="btn input" onclick="discord()">copy username</button>
