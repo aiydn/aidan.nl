@@ -37,7 +37,7 @@ jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (dat
         displayname = data.data.discord_user.global_name;
         username = data.data.discord_user.username;
         jQuery("#name").text(displayname);
-        jQuery("#discord").append(username)
+        jQuery("#discord").text("Discord: " + username)
         if (data.data.activities.length > 0 )
         {nowplaying = data.data.activities["0"].name;
         jQuery("#game").removeClass("hidden") 
