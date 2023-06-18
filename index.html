@@ -94,14 +94,15 @@
                 <div class="collapse-content">
                     <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
                         <div class="join join-vertical w-full">
-                            <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
-                            <input type="text" name="name" placeholder="name" class="input join-item input-bordered	"
-                                required />
-                            <input type="email" name="email" placeholder="email" class="input join-item input-bordered	"
-                                required>
-                            <textarea name="message" class="textarea join-item " placeholder="message"
+                            <input type="text" name="name" placeholder="name" class="input join-item	" required />
+                            <input type="email" name="email" placeholder="email" class="input join-item	" required>
+                            <textarea id="autoresizing" name="message" style="resize: none !important"
+                                class="join-item block overflow-hidden resize-none textarea " placeholder="message"
                                 required></textarea>
-                            <button type="submit" class="btn join-item btn-outline
+                            <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
+
+                            <button type="submit" class="btn join-item input 
+
                             ">Send</button>
                         </div>
                     </form>
@@ -110,7 +111,12 @@
         </div>
     </div>
     <script>
+        jQuery('#autoresizing').on('input', function () {
+            this.style.height = 'auto';
 
+            this.style.height =
+                (this.scrollHeight) * 1.05 + 'px';
+        });
         function toast(text) {
             jQuery("#notification-text").text(text)
             jQuery("#notification").removeClass("hidden");
