@@ -27,15 +27,14 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
         // artwork = data.recenttracks.track[0].image[3]["#text"];
         // url = data.recenttracks.track[0]["url"];
         // console.log(url)
-        jQuery("#music").text("🎧" + track + " by " + artist);
-        jQuery("#lastfm").text("Currently listening: " + track + " by " + artist);
+        jQuery("#lastfm").text(" Currently listening: " + track + " by " + artist);
         jQuery("#artwork").attr("src", artwork);
     }
 });
 jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
     // console.log(data)
     username = data.data.discord_user.username;
-    jQuery("#discord").text("Discord: " + username)
+    jQuery("#discord").text(" Discord: " + username)
 });
 function discord() {
     navigator.clipboard.writeText(username).then(function () {
