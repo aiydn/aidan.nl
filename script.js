@@ -20,7 +20,7 @@ if (notify == "message success") { toast("Message successfully sent") }
 
 jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
     if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
-        jQuery("#music").removeClass("hidden") 
+        jQuery("#music").removeClass("hidden")
         artist = data.recenttracks.track[0].artist["#text"];
         track = data.recenttracks.track[0].name;
         // album = data.recenttracks.track[0].album["#text"];
@@ -34,9 +34,9 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
 });
 jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
     // console.log(data)
-        username = data.data.discord_user.username;
-        jQuery("#discord").text("Discord: " + username)
-    });
+    username = data.data.discord_user.username;
+    jQuery("#discord").text("Discord: " + username)
+});
 function discord() {
     navigator.clipboard.writeText(username).then(function () {
         toast('Copied username')
