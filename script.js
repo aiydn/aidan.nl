@@ -1,4 +1,4 @@
-var username, displayname, nowplaying
+var username
 
 jQuery('#autoresizing').on('input', function () {
     this.style.height = 'auto';
@@ -33,17 +33,9 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
     }
 });
 jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
-    console.log(data)
-        displayname = data.data.discord_user.global_name;
+    // console.log(data)
         username = data.data.discord_user.username;
-        jQuery("#name").text(displayname);
         jQuery("#discord").text("Discord: " + username)
-        if (data.data.activities.length > 0 )
-        {nowplaying = data.data.activities["0"].name;
-        jQuery("#game").removeClass("hidden") 
-        jQuery("#game").text("🎮" + nowplaying);
-        jQuery("#discord").append(" | Now playing: " + nowplaying)
-    }
     });
 function discord() {
     navigator.clipboard.writeText(username).then(function () {
