@@ -11,27 +11,6 @@
 
         gtag('config', 'G-Z9Y8QS4XM0');
     </script>
-    <!-- <script src="https://kit.fontawesome.com/87883e0d91.js" crossorigin="anonymous"></script> -->
-    <style>
-        @font-face {
-            font-family: fontawesome_brands;
-            src: url(./font/fa-brands-400.woff2);
-        }
-
-        @font-face {
-            font-family: fontawesome_solid;
-            src: url(./font/fa-solid-900.woff2);
-        }
-
-        @font-face {
-            font-family: fontawesome_regular;
-            src: url(./font/fa-regular-900.woff2);
-        }
-
-        .fontawesome {
-            font-family: fontawesome_solid, fontawesome_brands;
-        }
-    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>aidan.nl</title>
@@ -42,6 +21,8 @@
     <meta name="author" content="Aidan">
     <link href="./tailwind.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/87883e0d91.js" crossorigin="anonymous"></script>
+
 </head>
 
 
@@ -71,15 +52,18 @@
         <!-- discord -->
         <div class="collapse bg-base-200">
             <input type="radio" name="buttons" />
-            <div id="discord" class="collapse-title text-xl font-medium"> Discord: aiydn</div>
+            <div class="collapse-title text-xl font-medium"><span> <i class="fa-brands fa-discord"></i> </span>Discord:
+                <span id="discord">aiydn</span>
+            </div>
             <div class="collapse-content">
-                <button class="btn input" onclick="discord()">copy username</button>
+                <button class="btn input" onclick="discord()">Copy Username</button>
             </div>
         </div>
         <!-- Nintendo Switch -->
         <div class="collapse bg-base-200">
             <input type="radio" name="buttons" />
-            <div class="collapse-title text-xl font-medium"> Nintendo Switch: SW-7899-8096-6577</div>
+            <div class="collapse-title text-xl font-medium"><span> <i class="fa-solid fa-gamepad"></i> </span>Nintendo
+                Switch: SW-7899-8096-6577</div>
             <div class="collapse-content">
                 <button class="btn input"
                     onclick="window.location.href='https://lounge.nintendo.com/friendcode/7899-8096-6577/DBTpJyqwJy';">Open
@@ -91,24 +75,27 @@
         <!-- Last.FM -->
         <div class="collapse bg-base-200">
             <input type="radio" name="buttons" />
-            <div id="lastfm" class="collapse-title text-xl font-medium"> Last.fm</div>
+            <div id="lastfm" class="collapse-title text-xl font-medium"><span> <i id='lastfm-icon'
+                        class="fa-brands fa-lastfm"></i>
+                </span> <span id='lastfm-text'>Last.fm</span></div>
             <div class="collapse-content">
-                <button class="btn input" onclick="window.location.href='https://www.last.fm/user/aiydn';">Last.fm
-                    page</button>
+                <button class="btn input" onclick="window.location.href='https://www.last.fm/user/aiydn';">Open Last.fm
+                    profile</button>
             </div>
         </div>
         <!-- Message -->
         <div class="collapse bg-base-200">
             <input type="radio" name="buttons" />
             <div class="collapse-title text-xl font-medium">
-                 Send Message</div>
+                <span> <i class="fa-sharp fa-solid fa-paper-plane"></i> </span>Send Message
+            </div>
             <div class="collapse-content">
                 <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
                     <div class="join join-vertical w-full">
-                        <input type="text" name="name" placeholder="name" class="input join-item	" required />
-                        <input type="email" name="email" placeholder="email" class="input join-item	" required>
+                        <input type="text" name="name" placeholder="Name" class="input join-item	" required />
+                        <input type="email" name="email" placeholder="Mail" class="input join-item	" required>
                         <textarea id="autoresizing" name="message" style="resize: none !important"
-                            class="join-item block overflow-hidden resize-none textarea " placeholder="message"
+                            class="join-item block overflow-hidden resize-none textarea " placeholder="Message"
                             required></textarea>
                         <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
 
@@ -120,7 +107,7 @@
             </div>
         </div>
     </div>
-    <script src="./script.js?v=2"></script>
+    <script src="./script.js?v=2.3"></script>
 
 </body>
 

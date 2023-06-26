@@ -1,4 +1,4 @@
-var username
+var username, songurl
 
 jQuery('#autoresizing').on('input', function () {
     this.style.height = 'auto';
@@ -23,19 +23,18 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
         jQuery("#music").removeClass("hidden")
         artist = data.recenttracks.track[0].artist["#text"];
         track = data.recenttracks.track[0].name;
-        // album = data.recenttracks.track[0].album["#text"];
-        // artwork = data.recenttracks.track[0].image[3]["#text"];
-        // url = data.recenttracks.track[0]["url"];
-        // console.log(url)
-        jQuery("#lastfm").text(" Currently listening: " + track + " by " + artist);
-        jQuery("#artwork").attr("src", artwork);
+        songurl = data.recenttracks.track[0]["url"];
+        console.log(data)
+        jQuery("#lastfm-icon").removeClass().addClass('fa-solid fa-music');
+        jQuery("#lastfm-text").text("Now listening: " + track + " by " + artist);
     }
 });
 jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
     // console.log(data)
     username = data.data.discord_user.username;
-    jQuery("#discord").text(" Discord: " + username)
+    jQuery("#discord").text(username)
 });
+
 function discord() {
     navigator.clipboard.writeText(username).then(function () {
         toast('Copied username')
