@@ -21,6 +21,8 @@ if (notify == "message success") { toast("Message successfully sent") }
 jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
     if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
         jQuery("#music").removeClass("hidden")
+        jQuery("#music-icon").addClass("animate-spin")
+
         artist = data.recenttracks.track[0].artist["#text"];
         track = data.recenttracks.track[0].name;
         songurl = data.recenttracks.track[0]["url"];
