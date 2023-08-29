@@ -28,7 +28,8 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
         songurl = data.recenttracks.track[0]["url"];
         console.log(data)
         jQuery("#lastfm-icon").removeClass().addClass('fa-solid fa-music');
-        jQuery("#lastfm-text").text("Now listening: " + track + " by " + artist);
+        jQuery("#lastfm-text1").text("Now listening: ");
+        jQuery("#lastfm-text2").text(track + " by " + artist);
     }
 });
 jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
