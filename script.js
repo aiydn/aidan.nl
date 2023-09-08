@@ -1,5 +1,5 @@
 var username, songurl
-
+jQuery('img').attr('src', 'https://api.lanyard.rest/590834029666893825.png?rand=' + Math.random());
 jQuery('#autoresizing').on('input', function () {
     this.style.height = 'auto';
 
