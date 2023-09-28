@@ -6,7 +6,7 @@ jQuery('#autoresizing').on('input', function () {
 });
 
 //get now listening song
-jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json", function (data) {
+jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&limit=1", function (data) {
     if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
         jQuery("#music").removeClass("hidden")
         jQuery("#music-icon").addClass("animate-spin")
@@ -19,7 +19,7 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
 });
 
 //generate top 15
-jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&period=1month", function (data) {
+jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&period=1month&limit=15", function (data) {
     for (let i = 0; i < 15; i++) {
         let rank = data.toptracks.track[i]["@attr"].rank
         let track = data.toptracks.track[i].name
