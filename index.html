@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>aidan.nl</title>
-    <link rel="icon" type="image/x-icon" href="https://api.lanyard.rest/590834029666893825.png">
+    <link rel="icon" type="image/x-icon" href="https://www.gravatar.com/avatar/0f65d85f09708f4676974710c85a545f?s=128">
     <meta name="title" content="aidan.nl">
     <meta name="keywords" content="aidan.nl, Aidan">
     <meta name="author" content="Aidan">
@@ -24,9 +24,10 @@
 </head>
 
 <body class="flex h-full w-full justify-center">
-    <div class="flex flex-col justify-center w-4/5 space-y-4">
+    <div class="flex flex-col justify-center w-4/5 min-w-min">
+        <div class="my-2"></div>
         <!-- notification -->
-        <div id="notification" class="hidden ">
+        <div id="notification" class="my-2 hidden ">
             <div class="alert alert-success">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none"
                     viewBox="0 0 24 24">
@@ -37,14 +38,14 @@
             </div>
         </div>
         <!-- avatar -->
-        <div class="avatar justify-center">
+        <div class="my-2 avatar justify-center">
             <div class="w-64 rounded-full">
-                <img src="https://api.lanyard.rest/590834029666893825.png" />
+                <img src="https://www.gravatar.com/avatar/0f65d85f09708f4676974710c85a545f?s=2048" />
             </div>
         </div>
-        <p class="text-2xl text-center">Aidan</p>
+        <p class="my-2 text-2xl text-center">Aidan</p>
         <!-- discord -->
-        <div class="collapse bg-base-200">
+        <div class="my-2 collapse bg-base-200">
             <input type="checkbox" />
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -55,11 +56,11 @@
                 <div class="inline-block">Discord: <span id="discord">aiydn</span></div>
             </div>
             <div class="collapse-content">
-                <button class="btn input" onclick="discord()">Copy username</button>
+                <button class="m-2 btn input" onclick="discord()">Copy username</button>
             </div>
         </div>
         <!-- Nintendo Switch -->
-        <div class="collapse bg-base-200">
+        <div class="my-2 collapse bg-base-200">
             <input type="checkbox" />
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -79,7 +80,7 @@
             </div>
         </div>
         <!-- Last.FM -->
-        <div class="collapse bg-base-200">
+        <div class="my-2 collapse bg-base-200">
             <input type="checkbox" />
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2" id="music-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -92,15 +93,60 @@
                     </svg>
                 </div>
                 <div class="inline-block" id='lastfm-text1'></div>
-                <div class="inline-block" id='lastfm-text2'>Last.fm</div>
+                <div class="inline-block" id='lastfm-text2'>Music Stats</div>
             </div>
             <div class="collapse-content">
-                <button class="btn input" onclick="window.location.href='https://www.last.fm/user/aiydn';">Open
+
+                <p>TopTracks Last.fm from the last 30 days</p>
+                <div class="overflow-x-auto ">
+                    <table class="table table-xs	">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Track</th>
+                                <th>Artist</th>
+                                <!-- <th>Playcount</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="music-top">
+                        </tbody>
+                    </table>
+                </div>
+                <button class="m-2 btn input" onclick="window.location.href='https://www.last.fm/user/aiydn';">Open
                     Last.fm profile</button>
             </div>
         </div>
+        <!-- anilist -->
+        <div class="my-2 collapse bg-base-200">
+            <input type="checkbox" />
+            <div class="collapse-title text-xl font-medium m-2">
+                <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                        fill="currentColor" viewBox="0 0 24 24" transform="scale(2)">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6.361 2.943 0 21.056h4.942l1.077-3.133H11.4l1.052 3.133H22.9c.71 0 1.1-.392 1.1-1.101V17.53c0-.71-.39-1.101-1.1-1.101h-6.483V4.045c0-.71-.392-1.102-1.101-1.102h-2.422c-.71 0-1.101.392-1.101 1.102v1.064l-.758-2.166zm2.324 5.948 1.688 5.018H7.144z" />
+                    </svg></div>
+                <div class="inline-block">AniList</div>
+            </div>
+            <div class="collapse-content">
+                <button class="m-2 btn input" onclick="window.location.href='https://anilist.co/user/aiydn';">My Account
+                    Overview</button>
+                <button class="m-2 btn input" onclick="window.location.href='https://anilist.co/user/aiydn/favorites';">See
+                    my Favorites</button>
+                <button class="m-2 btn input"
+                    onclick="window.location.href='https://anilist.co/user/aiydn/animelist/Watching';">What I'm
+                    Watching</button>
+                <button class="m-2 btn input"
+                    onclick="window.location.href='https://anilist.co/user/aiydn/animelist/Completed';">Completed
+                    Anime's </button>
+                <button class="m-2 btn input"
+                    onclick="window.location.href='https://anilist.co/user/aiydn/animelist/Planning';">What I'm planning
+                    to watch</button>
+
+                <p></p>
+            </div>
+        </div>
         <!-- Message -->
-        <div class="collapse bg-base-200">
+        <div class="my-2 collapse bg-base-200">
             <input type="checkbox" />
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -112,19 +158,20 @@
             </div>
             <div class="collapse-content">
                 <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
-                    <div class="join join-vertical w-full">
-                        <input type="text" name="name" placeholder="Name" class="input join-item	" required />
-                        <input type="email" name="email" placeholder="Mail" class="input join-item	" required>
-                        <textarea id="autoresizing" name="message" style="resize: none !important"
-                            class="join-item block overflow-hidden resize-none textarea " placeholder="Message"
-                            required></textarea>
+                    <div class="w-full">
+                        <input type="text" name="name" placeholder="Your name" class="my-2 w-full	input " required />
                         <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
-
-                        <button type="submit" class="btn join-item input">Send</button>
+                        <input type="email" name="email" placeholder="Your email address" class="my-2 w-full input "
+                            required>
+                        <textarea id="autoresizing" name="message" style="resize: none !important"
+                            class="my-2 w-full block overflow-hidden resize-none textarea " placeholder="Your message"
+                            required></textarea>
+                            <button type="submit" class="my-2 btn input">Send</button>
                     </div>
                 </form>
             </div>
         </div>
+        <div class="my-2"></div>
     </div>
     <script src="./script.js?v=2.3.2"></script>
 </body>
