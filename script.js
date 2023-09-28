@@ -30,16 +30,9 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiy
     }
 });
 
-//auto update discord username
-jQuery.get("https://api.lanyard.rest/v1/users/590834029666893825", function (data) {
-    var username = data.data.discord_user.username;
-    jQuery("#discord").text(username)
-});
-
-
 //copy discord button
 function discord() {
-    navigator.clipboard.writeText(username).then(function () {
+    navigator.clipboard.writeText("aiydn").then(function () {
         toast('Copied username')
     }, function () {
     })
