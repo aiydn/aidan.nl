@@ -24,7 +24,7 @@
 </head>
 
 <body class="flex h-full w-full justify-center">
-    <div class="flex flex-col justify-center w-4/5 min-w-min">
+    <div class="flex flex-col justify-center w-11/12 min-w-min">
         <div class="my-2"></div>
         <!-- notification -->
         <div id="notification" class="z-50 m-2 hidden fixed inset-x-0 top-0 w-max ">
@@ -56,7 +56,7 @@
                 <div class="inline-block">Discord: <span id="discord">aiydn</span></div>
             </div>
             <div class="collapse-content">
-                <button class="m-2 btn btn-outline btn-primary" onclick="discord()">Copy username</button>
+                <button class="m-2 btn btn-outline btn-primary" onclick="copy('aiydn', 'Copied username')">Copy username</button>
             </div>
         </div>
         <!-- Nintendo Switch -->
@@ -113,6 +113,7 @@
                 </div>
                 <button class="m-2 btn btn-outline btn-primary" onclick="window.location.href='https://www.last.fm/user/aiydn';">Open
                     Last.fm profile</button>
+                <button id="open-song" class="hidden m-2 btn btn-outline btn-primary" onclick="window.location.href=listening;"></button>
             </div>
         </div>
         <!-- anilist -->
@@ -124,27 +125,28 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6.361 2.943 0 21.056h4.942l1.077-3.133H11.4l1.052 3.133H22.9c.71 0 1.1-.392 1.1-1.101V17.53c0-.71-.39-1.101-1.1-1.101h-6.483V4.045c0-.71-.392-1.102-1.101-1.102h-2.422c-.71 0-1.101.392-1.101 1.102v1.064l-.758-2.166zm2.324 5.948 1.688 5.018H7.144z" />
                     </svg></div>
-                <div class="inline-block">AniList</div>
+                <div class="inline-block">Anime & Manga</div>
             </div>
             <div class="collapse-content">
-                <button class="m-2 btn btn-outline btn-primary" onclick="window.location.href='https://anilist.co/user/aiydn';">My account
-                    overview</button>
-                <button class="m-2 btn btn-outline btn-primary" onclick="window.location.href='https://anilist.co/user/aiydn/favorites';">See
-                    my favorites</button>
-                <button class="m-2 btn btn-outline btn-primary"
-                    onclick="window.location.href='https://anilist.co/user/aiydn/animelist/Watching';">What I'm
-                    watching</button>
-                <button class="m-2 btn btn-outline btn-primary"
-                    onclick="window.location.href='https://anilist.co/user/aiydn/animelist/Completed';">Completed
-                    anime's </button>
-                <button class="m-2 btn btn-outline btn-primary"
-                    onclick="window.location.href='https://anilist.co/user/aiydn/animelist/Planning';">What I'm planning
-                    to watch</button>
-
-                <p></p>
+                    <p class="my-2 text-xl">Favourite anime</p>
+                    <div class="overflow-x-auto ">
+                        <div id="anilist-favourites-anime" class="h-48 flex gap-4">
+                        </div>
+                    </div>
+                    <p class="my-2 text-xl">Favourite manga</p>
+                    <div class="overflow-x-auto ">
+                        <div id="anilist-favourites-manga" class="h-48 flex gap-4">
+                        </div>
+                    </div>
+                    <p class="my-2 text-xl">Favourite characters</p>
+                    <div class="overflow-x-auto ">
+                        <div id="anilist-favourites-characters" class="h-48 flex gap-4">
+                        </div>
+                    </div>
+                    <button class="mt-2 mr-2 btn btn-outline btn-primary" onclick="window.location.href='https://anilist.co/user/aiydn';">Open AniList account</button>
             </div>
-        </div>
-        <!-- Message -->
+            </div>
+            <!-- Message -->
         <div class="my-2 collapse bg-base-200 fill-base-content ">
             <input type="checkbox" /> 
             <div class="collapse-title text-xl font-medium m-2">
@@ -153,7 +155,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 2H7C4.24 2 2 4.23 2 6.98V12.96V13.96C2 16.71 4.24 18.94 7 18.94H8.5C8.77 18.94 9.13 19.12 9.3 19.34L10.8 21.33C11.46 22.21 12.54 22.21 13.2 21.33L14.7 19.34C14.89 19.09 15.19 18.94 15.5 18.94H17C19.76 18.94 22 16.71 22 13.96V6.98C22 4.23 19.76 2 17 2ZM13 13.75H7C6.59 13.75 6.25 13.41 6.25 13C6.25 12.59 6.59 12.25 7 12.25H13C13.41 12.25 13.75 12.59 13.75 13C13.75 13.41 13.41 13.75 13 13.75ZM17 8.75H7C6.59 8.75 6.25 8.41 6.25 8C6.25 7.59 6.59 7.25 7 7.25H17C17.41 7.25 17.75 7.59 17.75 8C17.75 8.41 17.41 8.75 17 8.75Z" />
                     </svg></div>
-                <div class="inline-block">Send message</div>
+                <div class="inline-block">Contact</div>
             </div>
             <div class="collapse-content w-full">
                 <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">

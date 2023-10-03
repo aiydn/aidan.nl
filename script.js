@@ -6,21 +6,26 @@ jQuery('#autoresizing').on('input', function () {
 });
 
 //get now listening song
+var listening
 jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&limit=1", function (data) {
     if (typeof data.recenttracks.track[0]["@attr"] != "undefined") {
         jQuery("#music").removeClass("hidden")
         jQuery("#music-icon").addClass("animate-spin")
         let artist = data.recenttracks.track[0].artist["#text"];
         let track = data.recenttracks.track[0].name;
+        let trackURL = data.recenttracks.track[0].url
         jQuery("#lastfm-icon").removeClass().addClass('fa-solid fa-music');
         jQuery("#lastfm-text1").text("Now listening: ");
         jQuery("#lastfm-text2").text(track + " by " + artist);
+        jQuery("#open-song").removeClass("hidden")
+        jQuery("#open-song").text(track + " by " + artist + " on Last.FM")
+        listening = data.recenttracks.track[0].url
     }
 });
 
 //generate top 15
 jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&period=1month&limit=15", function (data) {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < data.toptracks.track.length; i++) {
         let rank = data.toptracks.track[i]["@attr"].rank
         let track = data.toptracks.track[i].name
         let trackURL = data.toptracks.track[i].url
@@ -31,9 +36,9 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiy
 });
 
 //copy discord button
-function discord() {
-    navigator.clipboard.writeText("aiydn").then(function () {
-        toast('Copied username')
+function copy(text, popup) {
+    navigator.clipboard.writeText(text).then(function () {
+        toast(popup)
     }, function () {
     })
 }
@@ -50,3 +55,76 @@ function toast(text) {
     history.pushState(null, "", location.href.split("?")[0]);
     setTimeout(function () { jQuery("#notification").addClass("hidden"); }, 5000);
 }
+
+//AniList
+
+let listFavourites = `query {  User(id: 5783610) 
+    {favourites
+        {
+            anime{nodes{title{romaji english} siteUrl coverImage{large}}}
+            manga{nodes{title{romaji english} siteUrl coverImage{large}}}
+            characters{nodes{name{full} siteUrl image{large}}}  
+            staff{nodes{name{full} siteUrl}}  
+            studios{nodes{name siteUrl}}  
+        }
+    }
+}`
+
+function AniListGet(query, generateType, variables,) {
+
+
+
+    // Define our query variables and values that will be used in the query request
+    // var variables = {
+    //     id: 5783610
+    // };
+
+    // Define the config we'll need for our Api request
+    var url = 'https://graphql.anilist.co',
+        options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: query,
+                variables: variables
+            })
+        };
+
+    // Make the HTTP Api request
+    fetch(url, options).then(handleResponse)
+        .then(handleData);
+
+    function handleResponse(response) {
+        return response.json().then(function (json) {
+            return response.ok ? json : Promise.reject(json);
+        });
+    }
+
+    function handleData(data) {
+        generate(data)
+        console.log(data);
+    }
+
+    function generate(data) {
+        if (generateType == "favourites") {
+            let usefull = data.data.User.favourites;
+            for (let i = 0; i < usefull.anime.nodes.length; i++) {
+                $('#anilist-favourites-anime').append(`<img onclick="window.location.href='${usefull.anime.nodes[i].siteUrl}'" class="object-cover rounded-md" src="${usefull.anime.nodes[i].coverImage.large}" alt="${usefull.anime.nodes[i].title.english}" title="${usefull.anime.nodes[i].title.english}">`
+                )
+            }
+            for (let i = 0; i < usefull.manga.nodes.length; i++) {
+                $('#anilist-favourites-manga').append(`<img onclick="window.location.href='${usefull.manga.nodes[i].siteUrl}'" class="object-cover rounded-md" src="${usefull.manga.nodes[i].coverImage.large}" alt="${usefull.manga.nodes[i].title.english}" title="${usefull.manga.nodes[i].title.english}">`
+                )
+            }
+            for (let i = 0; i < usefull.characters.nodes.length; i++) {
+                $('#anilist-favourites-characters').append(`<img onclick="window.location.href='${usefull.characters.nodes[i].siteUrl}'" class="object-cover rounded-md" src="${usefull.characters.nodes[i].image.large}" alt="${usefull.characters.nodes[i].name.full}" title="${usefull.characters.nodes[i].name.full}">`
+                )
+            }
+        }
+    }
+}
+
+AniListGet(listFavourites, "favourites")
