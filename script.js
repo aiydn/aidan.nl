@@ -31,7 +31,7 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiy
         let trackURL = data.toptracks.track[i].url
         let artist = data.toptracks.track[i]["artist"].name
         let artistURL = data.toptracks.track[i]["artist"].url
-        $('#music-top').append(`<tr><th> ${rank} </th><td> <a href="${trackURL}">${track}</a> </td><td> <a href="${artistURL}">${artist}</a></td></tr>`)
+        $('#music-top').append(`<tr class="odd:bg-base-300"><th> ${rank} </th><td> <a href="${trackURL}">${track}</a> </td><td> <a href="${artistURL}">${artist}</a></td></tr>`)
     }
 });
 

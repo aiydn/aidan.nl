@@ -45,7 +45,7 @@
         </div>
         <p class="my-2 text-2xl text-center">Aidan</p>
         <!-- discord -->
-        <div class="my-2 collapse bg-base-200 fill-base-content ">
+        <div class="my-2 collapse bg-base-300 fill-base-content ">
             <input type="checkbox" /> 
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5y"
@@ -56,11 +56,11 @@
                 <div class="inline-block">Discord: <span id="discord">aiydn</span></div>
             </div>
             <div class="collapse-content">
-                <button class="m-2 btn btn-outline btn-primary" onclick="copy('aiydn', 'Copied username')">Copy username</button>
+                <button class="mt-2 mr-2  btn btn-outline btn-primary" onclick="copy('aiydn', 'Copied username')">Copy username</button>
             </div>
         </div>
         <!-- Nintendo Switch -->
-        <div class="my-2 collapse bg-base-200 fill-base-content ">
+        <div class="my-2 collapse bg-base-300 fill-base-content ">
             <input type="checkbox" /> 
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -73,14 +73,14 @@
                 <div class="inline-block">SW-7899-8096-6577</div>
             </div>
             <div class="collapse-content">
-                <button class="m-2 btn btn-outline btn-primary"
+                <button class="mt-2 mr-2 btn btn-outline btn-primary"
                     onclick="window.location.href='https://lounge.nintendo.com/friendcode/7899-8096-6577/DBTpJyqwJy';">Open
                     in app</button>
                 <p></p>
             </div>
         </div>
         <!-- Last.FM -->
-        <div class="my-2 collapse bg-base-200 fill-base-content ">
+        <div class="my-2 collapse bg-base-300 fill-base-content ">
             <input type="checkbox" /> 
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2" id="music-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 "
@@ -97,27 +97,26 @@
             </div>
             <div class="collapse-content">
                 <p class="text-lg">Most-listened songs from the last 3 months:</p>
-                <div class="overflow-x-auto ">
-                    <table class="table table-xs bg-base-100">
-                        <thead>
+                <div class="my-2 ">
+                    <table class="table table-xs border-collapse bg-base-200 rounded-lg">
+                        <tbody >
                             <tr>
                                 <th>#</th>
-                                <th>Track</th>
-                                <th>Artist</th>
-                                <!-- <th>Playcount</th> -->
+                                <th class="text-left">Track</th>
+                                <th class="text-left">Artist</th>
                             </tr>
-                        </thead>
+                        </tbody>
                         <tbody id="music-top">
                         </tbody>
                     </table>
                 </div>
-                <button class="m-2 btn btn-outline btn-primary" onclick="window.location.href='https://www.last.fm/user/aiydn';">Open
+                <button class="mt-2 mr-2 btn btn-outline btn-primary" onclick="window.location.href='https://www.last.fm/user/aiydn';">Open
                     Last.fm profile</button>
                 <button id="open-song" class="hidden m-2 btn btn-outline btn-primary" onclick="window.location.href=listening;"></button>
             </div>
         </div>
         <!-- anilist -->
-        <div class="my-2 collapse bg-base-200 fill-base-content ">
+        <div class="my-2 collapse bg-base-300 fill-base-content ">
             <input type="checkbox" /> 
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -147,7 +146,7 @@
             </div>
             </div>
             <!-- Message -->
-        <div class="my-2 collapse bg-base-200 fill-base-content ">
+        <div class="my-2 collapse bg-base-300 fill-base-content ">
             <input type="checkbox" /> 
             <div class="collapse-title text-xl font-medium m-2">
                 <div class="inline-block mr-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
@@ -160,13 +159,13 @@
             <div class="collapse-content w-full">
                 <p class="text-lg">Send me a message:</p>
                 <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
-                    <div class="px-2 w-full ">
-                        <input type="text" name="name" placeholder="Your name" class="my-2 w-full input input-bordered input-primary bg-base-200" required />
+                    <div class="py-2 w-full ">
+                        <input type="text" name="name" placeholder="Your name" class="my-1 w-full input input-bordered input-primary bg-base-300" required />
                         <input type="hidden" name="_next" value="https://aidan.nl/?notify=message%20success">
-                        <input type="email" name="email" placeholder="Your email address" class="my-2 w-full input input-bordered input-primary bg-base-200"
+                        <input type="email" name="email" placeholder="Your email address" class="my-1 w-full input input-bordered input-primary bg-base-300"
                             required>
                         <textarea id="autoresizing" name="message" style="resize: none !important"
-                            class="my-2 w-full block overflow-hidden resize-none textarea textarea-primary bg-base-200" placeholder="Your message"
+                            class="my-1 w-full block overflow-hidden resize-none textarea textarea-primary bg-base-300" placeholder="Your message"
                             required></textarea>
                             <button type="submit" class="my-2 btn btn-outline btn-primary">Send</button>
                     </div>
