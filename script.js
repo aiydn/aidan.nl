@@ -24,7 +24,7 @@ jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=
 });
 
 //generate top 15
-jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&period=1month&limit=15", function (data) {
+jQuery.get("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=aiydn&api_key=1f633977acf0e2d0630ec11dbc350d3e&format=json&period=3month&limit=20", function (data) {
     for (let i = 0; i < data.toptracks.track.length; i++) {
         let rank = data.toptracks.track[i]["@attr"].rank
         let track = data.toptracks.track[i].name
@@ -72,9 +72,6 @@ let listFavourites = `query {  User(id: 5783610)
 
 function AniListGet(query, generateType, variables,) {
 
-
-
-    // Define our query variables and values that will be used in the query request
     // var variables = {
     //     id: 5783610
     // };
@@ -104,8 +101,8 @@ function AniListGet(query, generateType, variables,) {
     }
 
     function handleData(data) {
-        generate(data)
-        console.log(data);
+        generate(data);
+        // console.log(data);
     }
 
     function generate(data) {

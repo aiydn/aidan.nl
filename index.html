@@ -19,7 +19,7 @@
     <meta name="title" content="aidan.nl">
     <meta name="keywords" content="aidan.nl, Aidan">
     <meta name="author" content="Aidan">
-    <link href="./tailwind.css" rel="stylesheet">
+    <link href="./tailwind.css?v=3" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
@@ -96,12 +96,12 @@
                 <div class="inline-block" id='lastfm-text2'>Music stats</div>
             </div>
             <div class="collapse-content">
-                <p>Most listened songs from the last 30 days</p>
+                <p class="text-lg">Most-listened songs from the last 3 months:</p>
                 <div class="overflow-x-auto ">
-                    <table class="table table-xs	">
+                    <table class="table table-xs bg-base-100">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th>#</th>
                                 <th>Track</th>
                                 <th>Artist</th>
                                 <!-- <th>Playcount</th> -->
@@ -128,17 +128,17 @@
                 <div class="inline-block">Anime & Manga</div>
             </div>
             <div class="collapse-content">
-                    <p class="my-2 text-xl">Favourite anime</p>
+                    <p class="my-2 text-lg">Favourite anime:</p>
                     <div class="overflow-x-auto ">
                         <div id="anilist-favourites-anime" class="h-48 flex gap-4">
                         </div>
                     </div>
-                    <p class="my-2 text-xl">Favourite manga</p>
+                    <p class="my-2 text-lg">Favourite manga:</p>
                     <div class="overflow-x-auto ">
                         <div id="anilist-favourites-manga" class="h-48 flex gap-4">
                         </div>
                     </div>
-                    <p class="my-2 text-xl">Favourite characters</p>
+                    <p class="my-2 text-lg">Favourite characters:</p>
                     <div class="overflow-x-auto ">
                         <div id="anilist-favourites-characters" class="h-48 flex gap-4">
                         </div>
@@ -158,6 +158,7 @@
                 <div class="inline-block">Contact</div>
             </div>
             <div class="collapse-content w-full">
+                <p class="text-lg">Send me a message:</p>
                 <form action="https://formsubmit.co/ffa7cbf7500544878ac78156e6434d57" method="POST">
                     <div class="px-2 w-full ">
                         <input type="text" name="name" placeholder="Your name" class="my-2 w-full input input-bordered input-primary bg-base-200" required />
@@ -174,7 +175,7 @@
         </div>
         <div class="my-2"></div>
     </div>
-    <script src="./script.js?v=2.4"></script>
+    <script src="./script.js?v=3"></script>
 </body>
 
 </html>
