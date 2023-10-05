@@ -44,8 +44,10 @@ function copy(text, popup) {
 }
 
 //check for notify (email send)
-const urlParams = new URLSearchParams(window.location.search);
-const notify = urlParams.get('notify');
+const params = Object.fromEntries(  
+    new URLSearchParams(window.location.search)
+  )
+var notify = params.notify;
 if (notify == "message success") { toast("Message successfully sent") }
 
 // show notify
@@ -56,6 +58,14 @@ function toast(text) {
     setTimeout(function () { jQuery("#notification").addClass("hidden"); }, 5000);
 }
 
+if (params.add){
+if (sha512(params.add) == '690ac2ea3a151e5448bd0e4d4cefbc1367640547755ba894055a94c1aead2ae52bfefc8296d5edd42fa9f758ae12e05344ac37f00f262a9f0368ac54b41205d4'){
+    var phone = params.add.replace(/\D/g,'');
+    jQuery("#h1").removeClass("hidden")
+    jQuery("#h1-title").text(`Whatsapp: ${phone}`)
+    var h1href = `https://api.whatsapp.com/send?phone=${phone}`
+
+}}
 //AniList
 
 let listFavourites = `query {  User(id: 5783610) 

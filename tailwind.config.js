@@ -12,6 +12,8 @@ module.exports = {
           ...require("daisyui/src/theming/themes")["[data-theme=light]"],
           "base-content": "#000000",
           "primary": "#a06080",
+          "primary-content": "#ffffff",
+
         },
         dark : {
           ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
